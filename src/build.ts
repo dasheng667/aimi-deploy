@@ -23,7 +23,7 @@ async function build(options: {
   const { project, version } = options;
   const config = await getConfig();
 
-  console.log('build>>>', options, config);
+  // console.log('build>>>', options, config);
 
   let zipPath = config.distPath;
   if(project){

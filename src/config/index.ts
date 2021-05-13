@@ -26,10 +26,14 @@ export interface SSHConfig {
 
 export interface Config {
   /**
-   * 本机dist目录
+   * 需要打包的目录
    */
   distPath?: string;
+  /**
+   * 服务端配置
+   */
   server?: Server;
+  zipExcludeFile?: string[];
   sshConfig?: {
     develop?: SSHConfig;
     test?: SSHConfig;
@@ -38,9 +42,14 @@ export interface Config {
 }
 
 const config: Config = {
-  distPath: undefined, // zip打包目录
-  server: undefined   // 服务器执行命令
+  distPath: undefined,
+  server: undefined 
 }
+
+export const excludeFile = [
+  "!./node_modules",
+  "!./dist",
+];
 
 export default function(): Config | Promise<Config>{
   if(configFilePath){

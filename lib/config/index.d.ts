@@ -16,14 +16,19 @@ export interface SSHConfig {
 }
 export interface Config {
     /**
-     * 本机dist目录
+     * 需要打包的目录
      */
     distPath?: string;
+    /**
+     * 服务端配置
+     */
     server?: Server;
+    zipExcludeFile?: string[];
     sshConfig?: {
         develop?: SSHConfig;
         test?: SSHConfig;
         production?: SSHConfig;
     };
 }
+export declare const excludeFile: string[];
 export default function (): Config | Promise<Config>;

@@ -23,7 +23,7 @@ async function build(options: {
   const { project, version } = options;
   const config = await getConfig();
 
-  // console.log('build>>>', options, config);
+  console.log('build>>>', options, config);
 
   let zipPath = config.distPath;
   if(project){
@@ -42,7 +42,7 @@ async function build(options: {
   const zipDistPath = project ? '../zip' : './zip';
 
   try{
-    const buildZipPath = await zip(zipPath, zipName, zipDistPath);
+    const buildZipPath = await zip(zipPath, zipName, zipDistPath, config);
     return {
       buildZipPath,
       config

@@ -16,9 +16,16 @@ aimi build -p mall -v 1.0.0
 ```
 
 ## 打包并部署
+`aimi deploy [env]` env有4个选项 `develop` `test` `gray` `production`
+
+`env`的配置跟`sshConfig`配置对应。
+
 ``` bash
+// 打包测试环境
 aimi deploy test
 aimi deploy test -p mall -v 1.0.0
+// 打包生产环境
+aimi deploy production
 ```
 
 ## Config
@@ -37,7 +44,7 @@ module.exports = {
     shellExecList: []
   },
   sshConfig: {
-    test: {
+    production: {
       host: '',
       port: 8888,
       username: ''

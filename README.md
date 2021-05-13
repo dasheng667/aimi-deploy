@@ -77,6 +77,17 @@ zipExcludeFile: ["!./file"]
 
 > 在服务器端执行命令
 
+示例：解压上传的文件
+```js
+shellExecList = [
+  `unzip -o /app/upload/build.zip -d /app/website`,
+  `cd /app/website`,
+  'npm run reset',
+  'exit',
+];
+```
+
+
 ### sshConfig[env]
 > 链接服务器的ssh配置
 

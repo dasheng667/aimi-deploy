@@ -1,23 +1,41 @@
 #!/usr/bin/env node
 
+"use strict";
+
+// to use V8's code cache to speed up instantiation time
+require("v8-compile-cache");
+
+require("@babel/register")({
+  presets: [
+    [
+      "@babel/preset-env",
+      {
+        targets: {
+          node: "current",
+        },
+      },
+    ],
+    "@babel/preset-typescript",
+  ],
+
+  plugins: ['@babel/plugin-syntax-dynamic-import'],
+
+  extensions: [".js", ".ts", ".tsx"],
+});
+
 const program = require('commander');
-const build = require('../lib/build').default;
-const server = require('../lib/server').default;
 
 program
-  .command('deploy [env]')
-  .description("部署环境")
-  .option('-p, --project [projectName]', '项目名称')
-  .option('-v, --version <version>', '项目版本')
-  .action(async (env, options) => {
-    // console.log('action.env:', arguments);
-    if (['test', 'develop', 'gray', 'production'].includes(env)) {
-      const { project, version } = options;
-      const buildData = await build({ project, version });
-
-      server(buildData, env);
-    } else {
-      console.log("请输入正确发布的环境 deploy [env]：'test', 'develop', 'gray', 'production'")
-    }
+  .version('1.0.0')
+  .usage('<command> [options]')
+  .command('build', '前端打包')
+  .command('upload', '前端部署')
+  .on('--help', function () {
+    console.log('========这里是帮助信息=======');
+    console.log('aimi-deploy build');
+    console.log('aimi-deploy build -p mall -v 1.0.0');
+    console.log('---');
+    console.log('aimi-deploy upload test');
+    console.log('aimi-deploy upload test -p mall -v 1.0.0');
   })
-  .parse(process.argv)
+program.parse(process.argv)

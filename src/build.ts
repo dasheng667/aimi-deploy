@@ -26,6 +26,10 @@ async function build(options: {
   // console.log('build>>>', options, config);
 
   let zipPath = config.distPath;
+  if(!zipPath){
+    throw new Error(`请检查配置文件.aimi-deploy.js。distPath不能为空。`);
+  }
+
   if(project){
     zipPath = path.join(config.distPath, project);
   } 

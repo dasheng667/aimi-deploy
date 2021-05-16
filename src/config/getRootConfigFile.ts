@@ -3,7 +3,7 @@ import fs from 'fs';
 
 export default function getConfigFilePath(): string {
   let fileList = [
-    resolve("./", ".aimi.config.js"),
+    resolve("./", ".aimi-deploy.js"),
   ];
   let ret = '';
 

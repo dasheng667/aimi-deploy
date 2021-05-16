@@ -1,10 +1,9 @@
 {
   "name": "aimi-deploy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Aimi前端打包，部署工具",
   "author": "qqhao",
   "license": "none",
-  "private": true,
   "main": "lib/index.js",
   "files": [
     "src",
@@ -12,10 +11,14 @@
     "types/*.d.ts"
   ],
   "bin": {
-    "aimi": "bin/aimi.js"
+    "aimi-deploy": "bin/aimi-deploy.js"
   },
   "scripts": {
     "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zhangjiahao93/back-calculation.git"
   },
   "dependencies": {
     "@babel/core": "^7.13.15",

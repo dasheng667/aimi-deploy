@@ -5,31 +5,31 @@
 # 安装
 
 ```bash
-yarn add aimi
+yarn add aimi-deploy
 ```
 
 # 用法
 ## 打包
 ``` bash
-aimi build
-aimi build -p mall -v 1.0.0
+aimi-deploy build
+aimi-deploy build -p mall -v 1.0.0
 ```
 
 ## 打包并部署
-`aimi deploy [env]` env有4个选项 `develop` `test` `gray` `production`
+`aimi-deploy upload [env]` env有4个选项 `develop` `test` `gray` `production`
 
 `env`的配置跟`sshConfig`配置对应。
 
 ``` bash
 // 打包测试环境
-aimi deploy test
-aimi deploy test -p mall -v 1.0.0
+aimi-deploy upload test
+aimi-deploy upload test -p mall -v 1.0.0
 // 打包生产环境
-aimi deploy production
+aimi-deploy upload production
 ```
 
 ## Config
-新建 `.aimi.config.js` 文件进行配置。
+新建 `.aimi-deploy.js` 文件进行配置。
 
 示例：
 ```js

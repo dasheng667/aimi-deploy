@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:zhangjiahao93/back-calculation.git"
+    "url": "git@github.com:qqhh91/aimi-deploy.git"
   },
   "dependencies": {
     "@babel/core": "^7.13.15",
